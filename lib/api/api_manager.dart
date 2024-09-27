@@ -22,7 +22,7 @@ class ApiManager {
       final decodedData = json.decode(response.body)['results'] as List;
       return decodedData.map((movie) => Movie.fromJson(movie)).toList();
     } else {
-      throw Exception('Something happened');
+      throw Exception('Failed to load popular movies');
     }
   }
 
@@ -32,7 +32,7 @@ class ApiManager {
       final decodedData = json.decode(response.body)['results'] as List;
       return decodedData.map((movie) => Movie.fromJson(movie)).toList();
     } else {
-      throw Exception('Something happened');
+      throw Exception('Failed to load top rated movies');
     }
   }
 
@@ -42,7 +42,7 @@ class ApiManager {
       final decodedData = json.decode(response.body)['results'] as List;
       return decodedData.map((movie) => Movie.fromJson(movie)).toList();
     } else {
-      throw Exception('Something happened');
+      throw Exception('Failed to load upcoming movies');
     }
   }
 
@@ -88,4 +88,23 @@ class ApiManager {
       throw e;
     }
   }
+
+  static Future<List<dynamic>> fetchSearchResults(String query) async {
+    if (query.isEmpty) {
+      return [];
+    }
+
+    final String searchUrl = Constants.getSearchMovieUrl(query);
+    print("Searching movies: $searchUrl");
+
+    final response = await http.get(Uri.parse(searchUrl));
+    if (response.statusCode == 200) {
+      final jsonResponse = json.decode(response.body);
+      return jsonResponse['results'];
+    } else {
+      print("Failed to fetch search results with status code: ${response.statusCode}");
+      throw Exception('Failed to load search results');
+    }
+  }
 }
+

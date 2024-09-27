@@ -25,14 +25,6 @@ class MovieDetails extends StatelessWidget {
             ],
           ),
           SizedBox(height: 8),
-          Wrap(
-            spacing: 8.0,
-            children: [
-              Chip(label: Text('Action')),
-              Chip(label: Text('Adventure')),
-              Chip(label: Text('Family')),
-            ],
-          ),
           SizedBox(height: 16),
           Text(
             args.overview ?? '',

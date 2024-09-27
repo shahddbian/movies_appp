@@ -4,6 +4,8 @@ import 'package:movies_appp/home_screen/home_screen.dart';
 import 'package:movies_appp/browse_screen/browse_widget.dart';
 import 'package:movies_appp/browse_screen/moviecategory_item.dart';
 import 'HomeScreenDetail/MovieDetailScreen.dart';
+import 'home_screen/WatchlistPage.dart';
+import 'home_screen/search_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
         BrowseWidget.routeName: (context) => BrowseWidget(),
         MovieCategoryItem.routeName: (context) => MovieCategoryItem(),
         MovieDetailsScreen.routeName: (context) => MovieDetailsScreen(),
+        SearchScreen.routeName: (context) => SearchScreen(),
+        WatchlistPage.routeName: (context) => WatchlistPage(),
       },
       debugShowCheckedModeBanner: false,
       theme: MyTheme.AppTheme,

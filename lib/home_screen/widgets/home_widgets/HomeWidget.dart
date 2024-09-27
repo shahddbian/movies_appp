@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../api/api_manager.dart';
 import '../../../models/category_response.dart';
 import '../new_release.dart';

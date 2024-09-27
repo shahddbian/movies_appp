@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_appp/home_screen/search_screen.dart';
 import 'package:movies_appp/home_screen/widgets/bottom_nav_bar.dart';
 import 'package:movies_appp/home_screen/widgets/home_widgets/HomeWidget.dart';
 import 'package:movies_appp/home_screen/widgets/home_widgets/search_widget.dart';
@@ -7,6 +8,8 @@ import 'package:movies_appp/browse_screen/browse_widget.dart';
 import 'package:movies_appp/models/category_response.dart';
 import 'package:movies_appp/HomeScreenDetail/MovieDetailScreen.dart';
 
+
+import 'WatchlistPage.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home_Screen';
 
@@ -21,9 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> homeBody = [
     HomeWidget(),
-    SearchWidget(),
+    SearchScreen(),
     BrowseWidget(),
-    WatchListWidget(),
+    WatchlistPage(),
   ];
 
   void navigateToMovieDetails(Movie movie) {

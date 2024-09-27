@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movies_appp/HomeScreenDetail/MovieDetailScreen.dart';
 import 'package:movies_appp/Theme/myTheme.dart';
 import 'package:movies_appp/api/api_manager.dart';
-import 'package:movies_appp/HomeScreenDetail/MovieDetailScreen.dart';
 import 'package:movies_appp/models/category_response.dart';
 
 class Recommended extends StatefulWidget {
@@ -17,8 +17,7 @@ class _RecommendedState extends State<Recommended> {
   @override
   void initState() {
     super.initState();
-    recommendedMovies =
-        ApiManager.getTopRatedMovies(); // Fetch recommended movies from API
+    recommendedMovies = ApiManager.getTopRatedMovies();
   }
 
   @override
@@ -77,18 +76,10 @@ class _RecommendedState extends State<Recommended> {
                           ? 'https://image.tmdb.org/t/p/w500${movie.posterPath}'
                           : 'https://via.placeholder.com/150'; // Fallback placeholder image
 
-                      return GestureDetector(
+                      return InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  MovieDetailsScreen(
-                                    // Pass the movie data to the details screen
-                                    // movie: movie.data!,
-                                  ),
-                            ),
-                          );
+                          Navigator.of(context).pushNamed(
+                              MovieDetailsScreen.routeName, arguments: movie);
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
