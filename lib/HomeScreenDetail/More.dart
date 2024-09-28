@@ -1,9 +1,35 @@
 import 'package:flutter/material.dart';
 
 class MoreLikeThis extends StatelessWidget {
-  final List<String> similarMovies = [
-    'Deadpool 2', // Replace with actual movie data
-    // Add more movie titles or data
+  final List<Map<String, String>> similarMovies = [
+    {
+      'poster': 'lib/images/action.jpg',
+      'title': 'Movie 1',
+      'rating': '7.7',
+      'year': '2018',
+      'duration': '1h 59m',
+    },
+    {
+      'poster': 'lib/images/animation.jpg',
+      'title': 'Movie 2',
+      'rating': '7.7',
+      'year': '2018',
+      'duration': '1h 59m',
+    },
+    {
+      'poster': 'lib/images/drama.jpg',
+      'title': 'Movie 3',
+      'rating': '7.7',
+      'year': '2018',
+      'duration': '1h 59m',
+    },
+    {
+      'poster': 'lib/images/history.jpg',
+      'title': 'Movie4 2',
+      'rating': '7.7',
+      'year': '2018',
+      'duration': '1h 59m',
+    },
   ];
 
   @override
@@ -20,17 +46,19 @@ class MoreLikeThis extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 8.0),
             child: Column(
               children: [
-                Image.network(
-                  'https://link_to_movie_poster.jpg',
-                  // Replace with actual image URL
+                // Movie Poster
+                Container(
                   height: 140,
-                  fit: BoxFit.cover,
+                  child: Image.asset(
+                    similarMovies[index]['poster']!,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 SizedBox(height: 8),
                 Text(
-                  similarMovies[index],
-                  style: TextStyle(fontSize: 16),
-                  maxLines: 2,
+                  similarMovies[index]['title']!,
+                  style: TextStyle(fontSize: 14),
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
               ],
